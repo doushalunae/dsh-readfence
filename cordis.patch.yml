@@ -1,0 +1,16 @@
+# dsh-read-guard bundle patch.
+#
+# - `read-guard` mounts the Host row: read policy, `readPolicy` projection,
+#   `/read` and `/read-grant` commands, plus the tool gate.
+# - `ui-permission` is the stock composer permission control. This bundle
+#   replaces it with the merged read/write control (same single slot), so the
+#   stock one is disabled here. Disabling this bundle restores it.
+# - The stock approval panel (`ui-approval`) stays mounted: this bundle only
+#   shadows its composer chain entry for read-guard requests, so the answerer,
+#   abort and delegation plumbing stay first-party.
+- insert:
+    - id: read-guard
+      name: 'dsh-read-guard'
+
+- id: ui-permission
+  disabled: true

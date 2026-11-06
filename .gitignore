@@ -1,0 +1,13 @@
+# Dependencies (installed with pnpm install)
+node_modules/
+
+# Local audit / build output
+*.log
+dist/
+coverage/
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
