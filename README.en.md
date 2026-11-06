@@ -45,10 +45,7 @@ environment variables and wildcards:
 ## Install
 
 ```powershell
-git clone https://github.com/doushalunae/dsh-readfence.git
-cd dsh-readfence
-pnpm install                                  # the only runtime dependency: @deepseek-ai/schemastery
-dsh plugin --profile desktop add "<absolute path to the clone>"
+dsh plugin --profile desktop add dsh-readfence
 ```
 
 Then **restart DSH** (Host code is not hot-reloaded). To remove it:
@@ -57,14 +54,22 @@ Then **restart DSH** (Host code is not hot-reloaded). To remove it:
 dsh plugin --profile desktop remove dsh-readfence
 ```
 
-A `link:` install does not install the package's own dependencies, which is why the clone needs
-`pnpm install` first. If you are installing from a directory that already has its dependencies,
-you can skip that step.
+Requires Node.js 20+. The plugin installs as a regular profile dependency with no build step and
+no build-script authorization.
 
-For a manual mount, add a `link:` dependency to the profile's `package.json` and a row
-`- id: read-guard` / `name: dsh-readfence` to `cordis.patch.yml`. The package must declare
-`"@deepseek-ai/dsh-session": "*"` as a peer, otherwise a `link:` install cannot resolve the
-host module.
+### From source (development)
+
+```powershell
+git clone https://github.com/doushalunae/dsh-readfence.git
+cd dsh-readfence
+pnpm install                                  # the only runtime dependency: @deepseek-ai/schemastery
+dsh plugin --profile desktop add "<absolute path to the clone>"
+```
+
+A `link:` install does not install the package's own dependencies, which is why the clone needs
+`pnpm install` first. For a manual mount, add `- id: read-guard` / `name: dsh-readfence` to the
+profile's `cordis.patch.yml`; the package must declare `"@deepseek-ai/dsh-session": "*"` as a
+peer, otherwise a `link:` install cannot resolve the host module.
 
 ## Usage
 

@@ -224,7 +224,7 @@ test('settings pages have a markdown hierarchy and framed blocks', () => {
   ]))
   assert.match(folders, /"h1"/)
   assert.match(folders, /read-fence/)
-  assert.match(folders, /v0\.1\.0/)
+  assert.match(folders, /v\d+\.\d+\.\d+/)
   assert.match(folders, /about\.lead/)
   assert.match(folders, /"h2"/)
   assert.match(folders, /"h3"/)
