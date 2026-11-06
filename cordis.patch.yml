@@ -1,4 +1,4 @@
-# dsh-read-guard bundle patch.
+# dsh-readfence bundle patch.
 #
 # - `read-guard` mounts the Host row: read policy, `readPolicy` projection,
 #   `/read` and `/read-grant` commands, plus the tool gate.
@@ -10,7 +10,7 @@
 #   abort and delegation plumbing stay first-party.
 - insert:
     - id: read-guard
-      name: 'dsh-read-guard'
+      name: 'dsh-readfence'
 
 - id: ui-permission
   disabled: true

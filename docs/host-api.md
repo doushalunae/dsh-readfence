@@ -132,7 +132,7 @@ import { CommandDefinitionId } from '@deepseek-ai/dsh-commands/brand' // optiona
 
 ctx.inject(['commands'], (commandsCtx) => {                 // optional service, like presets:206
   commandsCtx.commands.register({
-    definitionId: CommandDefinitionId('dsh-read-guard'),    // optional, stable id for adapters
+    definitionId: CommandDefinitionId('dsh-readfence'),    // optional, stable id for adapters
     name: 'read',                                           // /^[a-z][a-z0-9_-]*$/
     description: 'Set the read mode for this session',
     input: { hint: '<ask|allow|deny>' },                    // hint non-empty; attachments?: boolean
@@ -182,7 +182,7 @@ and silently dropped on reload” (`dsh-user-approval/lib/index.js:44-56`).
 
 ```json
 {
-  "name": "dsh-read-guard",
+  "name": "dsh-readfence",
   "version": "0.1.0",
   "type": "module",
   "main": "lib/index.js",
@@ -195,7 +195,7 @@ and silently dropped on reload” (`dsh-user-approval/lib/index.js:44-56`).
 # cordis.patch.yml — top-level array of patch entries
 - insert:
     - id: read-guard
-      name: 'dsh-read-guard'      # must equal the package name (Loader imports it as a bare specifier)
+      name: 'dsh-readfence'      # must equal the package name (Loader imports it as a bare specifier)
 ```
 
 | Field | Status | Evidence |

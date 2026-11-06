@@ -1,12 +1,12 @@
-# dsh-read-guard
+# dsh-readfence
 
 **给 DeepSeek Harness 补上「读」侧权限的插件。**
 
 简体中文 | [English](README.en.md)
 
-![test](https://github.com/doushalunae/dsh-read-guard/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/doushalunae/dsh-readfence/actions/workflows/test.yml/badge.svg)
 
-![dsh-read-guard](assets/hero.png)
+![dsh-readfence](assets/hero.png)
 
 DSH 的沙箱只管**写**：`read-only`、`workspace-write`、`danger-full-access` 限制的都是文件修改，
 而 `read`、`grep`、`glob`、`present` 和 shell 依然能读整台机器。
@@ -40,8 +40,8 @@ DSH 的沙箱只管**写**：`read-only`、`workspace-write`、`danger-full-acce
 ## 安装
 
 ```powershell
-git clone https://github.com/doushalunae/dsh-read-guard.git
-cd dsh-read-guard
+git clone https://github.com/doushalunae/dsh-readfence.git
+cd dsh-readfence
 pnpm install                                  # 唯一的运行时依赖：@deepseek-ai/schemastery
 dsh plugin --profile desktop add "<克隆目录的绝对路径>"
 ```
@@ -49,13 +49,13 @@ dsh plugin --profile desktop add "<克隆目录的绝对路径>"
 装完**重启 DSH**（Host 代码不热更新）。卸载：
 
 ```powershell
-dsh plugin --profile desktop remove dsh-read-guard
+dsh plugin --profile desktop remove dsh-readfence
 ```
 
 `link:` 安装不会自动装依赖，所以克隆后要先 `pnpm install`；如果你直接用的是已经装好依赖的目录，可以跳过这一步。
 
 手动挂载的话，在 profile 的 `package.json` 里加 `link:` 依赖，并在 `cordis.patch.yml` 里加一行
-`- id: read-guard` / `name: dsh-read-guard`。注意 `package.json` 必须声明
+`- id: read-guard` / `name: dsh-readfence`。注意 `package.json` 必须声明
 `"@deepseek-ai/dsh-session": "*"` 这个 peer，否则 `link:` 安装解析不到宿主模块。
 
 ## 用起来

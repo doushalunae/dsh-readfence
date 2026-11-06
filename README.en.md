@@ -1,12 +1,12 @@
-# dsh-read-guard
+# dsh-readfence
 
 **A read-side permission gate for DeepSeek Harness.**
 
 [简体中文](README.md) | English
 
-![test](https://github.com/doushalunae/dsh-read-guard/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/doushalunae/dsh-readfence/actions/workflows/test.yml/badge.svg)
 
-![dsh-read-guard](assets/hero.png)
+![dsh-readfence](assets/hero.png)
 
 The DSH sandbox only covers **writes**: `read-only`, `workspace-write` and `danger-full-access`
 all constrain file modifications, while `read`, `grep`, `glob`, `present` and the shell can still
@@ -45,8 +45,8 @@ environment variables and wildcards:
 ## Install
 
 ```powershell
-git clone https://github.com/doushalunae/dsh-read-guard.git
-cd dsh-read-guard
+git clone https://github.com/doushalunae/dsh-readfence.git
+cd dsh-readfence
 pnpm install                                  # the only runtime dependency: @deepseek-ai/schemastery
 dsh plugin --profile desktop add "<absolute path to the clone>"
 ```
@@ -54,7 +54,7 @@ dsh plugin --profile desktop add "<absolute path to the clone>"
 Then **restart DSH** (Host code is not hot-reloaded). To remove it:
 
 ```powershell
-dsh plugin --profile desktop remove dsh-read-guard
+dsh plugin --profile desktop remove dsh-readfence
 ```
 
 A `link:` install does not install the package's own dependencies, which is why the clone needs
@@ -62,7 +62,7 @@ A `link:` install does not install the package's own dependencies, which is why 
 you can skip that step.
 
 For a manual mount, add a `link:` dependency to the profile's `package.json` and a row
-`- id: read-guard` / `name: dsh-read-guard` to `cordis.patch.yml`. The package must declare
+`- id: read-guard` / `name: dsh-readfence` to `cordis.patch.yml`. The package must declare
 `"@deepseek-ai/dsh-session": "*"` as a peer, otherwise a `link:` install cannot resolve the
 host module.
 

@@ -1,5 +1,5 @@
 {
-  "name": "dsh-read-guard",
+  "name": "dsh-readfence",
   "version": "0.1.0",
   "private": true,
   "description": "Read-side approval gate for DeepSeek Harness: allowlisted reads, per-session read modes, and a merged read/write permission control",
@@ -15,11 +15,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/doushalunae/dsh-read-guard.git"
+    "url": "git+https://github.com/doushalunae/dsh-readfence.git"
   },
-  "homepage": "https://github.com/doushalunae/dsh-read-guard#readme",
+  "homepage": "https://github.com/doushalunae/dsh-readfence#readme",
   "bugs": {
-    "url": "https://github.com/doushalunae/dsh-read-guard/issues"
+    "url": "https://github.com/doushalunae/dsh-readfence/issues"
   },
   "engines": {
     "node": ">=20"
