@@ -1,7 +1,6 @@
 {
   "name": "dsh-readfence",
   "version": "0.1.0",
-  "private": true,
   "description": "Read-side approval gate for DeepSeek Harness: allowlisted reads, per-session read modes, and a merged read/write permission control",
   "type": "module",
   "license": "MIT",
